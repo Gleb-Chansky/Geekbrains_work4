@@ -1,9 +1,22 @@
-.button {
-    border-radius: 30px;
-    width: 70px;
-    height: 30px;
+body {
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.chat__box {
+    width: 500px;
+    min-height: 200px;
+    border-radius: 20px;
 }
 
-.input {
-    border-radius: 30px;
+
+.chat {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.chat__item {
+    margin-bottom: 10px;
 }
