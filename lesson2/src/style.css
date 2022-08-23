@@ -1,0 +1,22 @@
+body {
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.chat__box {
+    width: 500px;
+    min-height: 200px;
+    border-radius: 20px;
+}
+
+
+.chat {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.chat__item {
+    margin-bottom: 10px;
+}
