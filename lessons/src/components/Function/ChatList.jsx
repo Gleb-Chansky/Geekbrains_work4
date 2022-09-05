@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { getChats } from "../../redux/chatReducer/selectors";
 import { List, ListItem } from "@mui/material";
 
 export const ChatList = () => {
@@ -6,24 +8,11 @@ export const ChatList = () => {
     const [name, setName] = useState('');
 
 
-    const [chatList, setChatList] = useState([
-        {
-            id: 1,
-            name: "Kirill Bunin"
-        },
-        {
-            id: 2,
-            name: "Alexei Ivanon"
-        },
-        {
-            id: 3,
-            name: "Svetlana Butakova"
-        }
-    ])
+    const chats = useSelector(getChats)
+    const dispatch = useDispatch()
 
     const deleteItem = (id) => {
-        const filteredChatList = chatList.filter((item) => item.id !== id)
-        setChatList(filteredChatList);
+        dispatch({type:'delete', payload: id})
     }
 
     const handleChange = (event) => {
@@ -37,10 +26,10 @@ export const ChatList = () => {
                 name: name,
                 id: randomId
             }
-            setChatList(prevState => [...prevState, obj])
+            dispatch({type:'add', payload:obj})
             setName('');
         } else {
-            setChatList(chatList);
+            return;
         }
     }
 
@@ -56,7 +45,7 @@ export const ChatList = () => {
             </div>
         <List className="chat__list">
             {
-                chatList.map((item) => (
+                chats.map((item) => (
                     <ListItem key={item.id}>{item.name} <button onClick={() => deleteItem(item.id)}>x</button></ListItem>
                 ))
             }
