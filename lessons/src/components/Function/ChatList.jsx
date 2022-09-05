@@ -12,7 +12,10 @@ export const ChatList = () => {
     const dispatch = useDispatch()
 
     const deleteItem = (id) => {
-        dispatch({type:'delete', payload: id})
+        dispatch({
+            type: 'delete', payload: id, meta: {
+            delay: 3000,
+        }})
     }
 
     const handleChange = (event) => {
