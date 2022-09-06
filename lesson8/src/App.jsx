@@ -21,7 +21,7 @@ function App() {
     return (
       <div>
         <h1>Упс что-то пошло не так ...</h1>
-        <button onClick={handleRestart}>Обновить</button>
+        <button onClick={handleRestart}>Обновить...</button>
       </div>
     )
   }
